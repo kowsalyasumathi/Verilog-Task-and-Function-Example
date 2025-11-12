@@ -109,7 +109,7 @@ module ripple_counter_func(
 always @(posedge clk or posedge rst)
 begin
     if (rst)
-         Q <= 4'B0000;
+         Q <= 4'b0000;
      else
          Q <= increment(count);
 end
