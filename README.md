@@ -69,20 +69,7 @@ module tb_ripple_carry_adder_task;
     ripple_carry_adder_task uut (A, B, SUM, COUT);
 
     initial begin
-            clk = 0;
-        rst = 1;   
-        #10;
-        rst = 0;  
-        #10 $display("Time=%0t | Q=%b (%0d)", $time, Q, Q);
-        #10 $display("Time=%0t | Q=%b (%0d)", $time, Q, Q);
-        
-        rst = 1;
-        #10 $display("Time=%0t | Q=%b (%0d)", $time, Q, Q);
-        rst = 0;
-        #10 $display("Time=%0t | Q=%b (%0d)", $time, Q, Q);
-        #10 $display("Time=%0t | Q=%b (%0d)", $time, Q, Q);
-        #10 $display("Time=%0t | Q=%b (%0d)", $time, Q, Q);
-        $finish;
+            
     end
 endmodule
 ```
