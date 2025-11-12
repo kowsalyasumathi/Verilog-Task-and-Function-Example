@@ -106,11 +106,13 @@ module ripple_counter_func(
             increment = val + 1;
         end
     endfunction
-
-
-
-
-
+always @(posedge clk or posedge rst)
+begin
+    if (rst)
+         Q <= 4'B0000;
+     else
+         Q <= increment(count);
+end
 endmodule
 ```
 ### **Testbench for 4-bit Ripple Counter using Function**
