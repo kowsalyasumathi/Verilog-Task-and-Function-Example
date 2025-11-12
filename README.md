@@ -46,16 +46,19 @@ module ripple_carry_adder_task(
             cout = (a & b) | (b & cin) | (a & cin);
         end
     endtask
+     integer i;
+    reg c; // intermediate carry
 
+    always @(*) begin
+        c = 0; // initial carry = 0
+        for (i = 0; i < 4; i = i + 1) begin
+            full_adder(A[i], B[i], c, sum_temp[i], c);
+        end
+        cout_temp = c;
+    end
 
-
-
-
-
-Type the Program
-
-
-
+    assign SUM = sum_temp;
+    assign COUT = cout_temp;
 endmodule
 ```
 
@@ -69,7 +72,16 @@ module tb_ripple_carry_adder_task;
     ripple_carry_adder_task uut (A, B, SUM, COUT);
 
     initial begin
-            
+          $monitor("Time=%0t | A=%b | B=%b | SUM=%b | COUT=%b", $time, A, B, SUM, COUT);
+
+        // Test cases
+        A = 4'b0000; B = 4'b0000; #10;
+        A = 4'b0101; B = 4'b0011; #10;
+        A = 4'b1111; B = 4'b0001; #10;
+        A = 4'b1010; B = 4'b0111; #10;
+        A = 4'b1111; B = 4'b1111; #10;
+
+        $finish;   
     end
 endmodule
 ```
