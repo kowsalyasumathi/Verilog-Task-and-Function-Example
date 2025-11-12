@@ -138,7 +138,20 @@ module tb_ripple_counter_func;
     end
 
     initial begin
-     
+        clk = 0;
+        rst = 1;   
+        #10;
+        rst = 0;  
+        #10 $display("Time=%0t | Q=%b (%0d)", $time, Q, Q);
+        #10 $display("Time=%0t | Q=%b (%0d)", $time, Q, Q);
+        
+        rst = 1;
+        #10 $display("Time=%0t | Q=%b (%0d)", $time, Q, Q);
+        rst = 0;
+        #10 $display("Time=%0t | Q=%b (%0d)", $time, Q, Q);
+        #10 $display("Time=%0t | Q=%b (%0d)", $time, Q, Q);
+        #10 $display("Time=%0t | Q=%b (%0d)", $time, Q, Q);
+     $finish
     end
 endmodule
 ```
